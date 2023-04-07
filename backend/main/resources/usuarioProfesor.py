@@ -26,11 +26,14 @@ class Profesor(Resource):
         #Verificacion que existe el Profesor
         if int(id) in PROFESORES:
             
+            
             #Retornamos el Profesor
             return PROFESORES[int(id)]
+
+        #Retornamos un mensaje de exito
+        return '', 201
         
-        #Si no existe el Profesor retornamos un error 404
-        return {'error': 'Profesor no encontrado'}, 404
+        
     
     #Eliminamos el Recurso
     def delete(self, id):

@@ -22,10 +22,10 @@ def create_app():
     load_dotenv()
 
     #Cargar a la API el Recurso PROFESORES y especificamos la ruta
-    api.add_resource(resources.ProfesorResource, '/profesores')
+    api.add_resource(resources.ProfesorResource, '/profesor/<id>')
     
     #Cargar a la API el Recurso Profesor Y especificamos la ruta
-    api.add_resource(resources.ProfesoresResource, '/profesores/<id>')
+    api.add_resource(resources.ProfesoresResource, '/profesores')
     
     
     #Planificacion alumno
