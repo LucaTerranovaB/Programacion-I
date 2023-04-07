@@ -1,5 +1,11 @@
 from .usuarioProfesor import Profesor as ProfesorResource
 from .usuarioProfesor import Profesores as ProfesoresResource
+from .planificacionesProfesores import Planificaciones as PlanificacionesResource
+from .planificacionesProfesores import Planificacion as PlanificacionResource
+
+
+
+
 #from .planificacionAlumno import PlanificacionAlumno as AlumnoResource
 
 # la clase .annimal del archivop.py lo traemos como AnimalResource para diferenciar las clases
