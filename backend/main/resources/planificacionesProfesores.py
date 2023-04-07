@@ -4,7 +4,16 @@ from flask import request
 #Datos de prueba JSON
 
 PLANIFICACIONES= {
-
+    1 : { 'dni':'39999998','planificacion':'Pilates','dia':'Lunes','hora':'10:00','espacio':'1','estado':'Activo' },
+    2 : { 'dni':'39523789','planificacion':'Funcional','dia':'Martes','hora':'9:00','espacio':'1','estado':'Activo' },
+    3 : { 'dni':'39254110','planificacion':'Calistenia','dia':'Miercoles','hora':'11:00','espacio':'1','estado':'Activo' },
+    4 : { 'dni':'39254111','planificacion':'Runnin','dia':'Lunes','hora':'10:00','espacio':'2','estado':'Activo' },
+    5 : { 'dni':'39254112','planificacion':'Gimnasio','dia':'Martes','hora':'9:00','espacio':'2','estado':'Activo' },
+    6 : { 'dni':'39254113','planificacion':'Pilates','dia':'Miercoles','hora':'11:00','espacio':'3','estado':'Activo' },
+    7 : { 'dni':'39254254','planificacion':'Funcional','dia':'Jueves','hora':'10:00','espacio':'3','estado':'Activo' },
+    8 : { 'dni':'39254915','planificacion':'Calistenia','dia':'Viernes','hora':'9:00','espacio':'4','estado':'Activo' },
+    9 : { 'dni':'39254316','planificacion':'Runnin','dia':'Viernes','hora':'11:00','espacio':'1','estado':'Activo' },
+    10 : {'dni':'39254127','planificacion':'Gimnasio','dia':'Sabado','hora':'10:00','espacio':'2','estado':'Activo'}
 }
 #Definos el recurso 
 

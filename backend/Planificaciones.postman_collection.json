@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "0011d7f9-5353-41b3-af50-ed3d763f77cb",
+		"name": "Planificaciones",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26782791"
+	},
+	"item": [
+		{
+			"name": "Obtener Planificaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/planificaciones",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"planificaciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Planificaciones",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"dni\": \"39254111\",\n        \"planificacion\": \"Runnin\",\n        \"dia\": \"Sabado\",\n        \"hora\": \"10:00\",\n        \"espacio\": \"2\",\n        \"estado\": \"Activo\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/planificacion/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"planificacion",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Planificaciones",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"dni\": \"39254111\",\n        \"planificacion\": \"Runnin\",\n        \"dia\": \"Miercoles\",\n        \"hora\": \"16:00\",\n        \"espacio\": \"3\",\n        \"estado\": \"Activo\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/planificaciones",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"planificaciones"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

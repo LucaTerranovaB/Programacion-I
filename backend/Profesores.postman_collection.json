@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "cc734a2e-3607-4d35-a0f1-13998741c44b",
+		"name": "Profesores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26782791"
+	},
+	"item": [
+		{
+			"name": "Obtener un profesor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/profesores/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"profesores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
