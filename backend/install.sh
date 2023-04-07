@@ -4,4 +4,4 @@ source bin/activate
 pip3 install -r requirements.txt
 
 #permisos
-sudo chmod +x install.sh
+chmod +x install.sh
