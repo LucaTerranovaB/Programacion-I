@@ -33,10 +33,19 @@ def create_app():
     #Cargar a la API el Recurso Planificaciones Y especificamos la ruta
     api.add_resource(resources.PlanificacionesResource, '/planificaciones')
     
-    #Planificacion alumno
-    #api.add_resource(resources.AlumnoResource, '/alumnos')
+    #Cargar a la API el Recurso Alumno Y especificamos la ruta
+    api.add_resource(resources.AlumnoResource, '/alumno/<id>')
     
+    #Cargar a la API el Recurso Alumnos Y especificamos la ruta
+    api.add_resource(resources.AlumnosResource, '/alumnos')
     
+    #Cargar a la API el Recurso PlanificacionA Y especificamos la ruta
+    api.add_resource(resources.PlanificacionAResource, '/planificacionA/<id>')
+    
+    #Cargar a la API el Recurso PlanificacionesA Y especificamos la ruta
+    api.add_resource(resources.PlanificacionesAResource, '/planificacionesA')
+    
+  
     
     #Cargar la APLICACION en la API  de Flask Restful (Para que la API pueda usar la applicacion)
     api.init_app(app)
