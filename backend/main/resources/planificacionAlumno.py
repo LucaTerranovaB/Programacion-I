@@ -34,7 +34,17 @@ class PlanificacionesA(Resource):
     # Obtener todas las planificaciones de los PALUMNOS
     def get(self):
         
-        return PlanificacionA.get(self, 1), PlanificacionA.get(self, 2), PlanificacionA.get(self, 3)
+        planificaciones = {}
+        # Verificamos que exista el alumno
+        for id in ALUMNOS:
+            alumno = ALUMNOS[id]
+            # Si el estado del alumno es 'activo', retornamos su planificación
+            if alumno['estado'] == 'activo':
+                planificacion_id = alumno['Planificacion']
+                # Obtenemos la planificación por su ID
+                planificacion = {'Planificacion': planificacion_id, 'Alumno': id, 'Nombre': alumno['nombre']}
+                planificaciones[id] = planificacion
+        return planificaciones
 
    
    
