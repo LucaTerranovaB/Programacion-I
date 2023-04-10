@@ -30,21 +30,3 @@ class PlanificacionA(Resource):
         return {'error': 'El alumno no existe'}, 404
     
     
-class PlanificacionesA(Resource):
-    # Obtener todas las planificaciones de los PALUMNOS
-    def get(self):
-        
-        planificaciones = {}
-        # Verificamos que exista el alumno
-        for id in ALUMNOS:
-            alumno = ALUMNOS[id]
-            # Si el estado del alumno es 'activo', retornamos su planificación
-            if alumno['estado'] == 'activo':
-                planificacion_id = alumno['Planificacion']
-                # Obtenemos la planificación por su ID
-                planificacion = {'Planificacion': planificacion_id, 'Alumno': id, 'Nombre': alumno['nombre']}
-                planificaciones[id] = planificacion
-        return planificaciones
-
-   
-   

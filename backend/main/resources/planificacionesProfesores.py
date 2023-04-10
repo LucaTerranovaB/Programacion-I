@@ -27,6 +27,7 @@ class Planificacion(Resource):
         if int(id) in PLANIFICACIONES:
             
             
+            
             #Retornamos el Profesor
             return PLANIFICACIONES[int(id)]
 

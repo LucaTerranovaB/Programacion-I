@@ -3,7 +3,7 @@ from .usuarioProfesor import Profesores as ProfesoresResource
 from .planificacionesProfesores import Planificaciones as PlanificacionesResource
 from .planificacionesProfesores import Planificacion as PlanificacionResource
 from .planificacionAlumno import PlanificacionA as PlanificacionAResource
-from .planificacionAlumno import PlanificacionesA as PlanificacionesAResource
+
 from .alumno import Alumno as AlumnoResource
 from .alumno import Alumnos as AlumnosResource
 
