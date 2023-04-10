@@ -36,20 +36,7 @@ class Planificacion(Resource):
         
         
     
-    #Eliminamos el Recurso
-    def delete(self, id):
-        
-        #Verificacion que existe el Profesor
-        if int(id) in PLANIFICACIONES:
-            
-            #Elimino el Profesor
-            del PLANIFICACIONES[int(id)]
-            
-            #Retornamos un mensaje de exito
-            return '', 204
-        
-        #Si no existe el Profesor retornamos un error 404
-        return {'error': 'Profesor no encontrado'}, 404
+    
     
     #Modificamos el Recurso PROFESOR
     def put(self, id):

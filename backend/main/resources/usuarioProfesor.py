@@ -35,20 +35,7 @@ class Profesor(Resource):
         
         
     
-    #Eliminamos el Recurso
-    def delete(self, id):
-        
-        #Verificacion que existe el Profesor
-        if int(id) in PROFESORES:
-            
-            #Elimino el Profesor
-            del PROFESORES[int(id)]
-            
-            #Retornamos un mensaje de exito
-            return '', 204
-        
-        #Si no existe el Profesor retornamos un error 404
-        return {'error': 'Profesor no encontrado'}, 404
+    
     
     #Modificamos el Recurso PROFESOR
     def put(self, id):
@@ -68,18 +55,4 @@ class Profesor(Resource):
         
         #Si no existe el Profesor retornamos un error 404
         return {'error': 'Profesor no encontrado'}, 404
-    
-
-#Coleccion de RECURSO PROFESORES    
-class Profesores(Resource):
-    
-    #Obtenemos la coleccion de PROFESORES
-    def get(self):
-        return PROFESORES
-    
-    #Insertamos un nuevo Profesor
-    def post(self):
-        profesor = request.get_json()
-        id = int(max(PROFESORES.keys())) + 1
-        PROFESORES[id] = profesor
-        return PROFESORES[id], 201
+       
