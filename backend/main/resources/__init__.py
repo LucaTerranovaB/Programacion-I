@@ -1,11 +1,18 @@
-from .usuarioProfesor import Profesor as ProfesorResource
-from .planificacionesProfesores import Planificaciones as PlanificacionesResource
-from .planificacionesProfesores import Planificacion as PlanificacionResource
-from .planificacionAlumno import PlanificacionA as PlanificacionAResource
-from .alumno import Alumno as AlumnoResource
-from .alumno import Alumnos as AlumnosResource
+#Cambiar el nombre en la importación para clarificar y evitar conflictos
+from .usuario import Usuario as UsuarioResource
+from .usuario import Usuarios as UsuariosResource
 
+from .usuariosalumnos import UsuarioAlumno as UsuarioAlumnoResource
+from .usuariosalumnos import UsuariosAlumnos as UsuariosAlumnosResource
 
+from .usuarioprofesor import UsuarioProfesor as UsuarioProfesorResource
 
-# la clase .annimal del archivop.py lo traemos como AnimalResource para diferenciar las clases
-#PARA AHORRARNOS CONFLICOS RENOMBRAMOS LA CLASE ANIMAL DEL ARCHIVO ANIMAL.PY COMO ANIMALRESOURCEs
+from .planificacion import Planificacion as PlanificacionResource
+from .planificacion import Planificaciones as PlanificacionesResource
+
+from .planificacionalumno import PlanificacionAlumno as PlanificacionAlumnoResource
+
+from .profesorclases import ProfesorClases as ProfesorClasesResource
+
+from .pago import Pago as PagoResource
+from .login import Login as LoginResource

@@ -1,53 +1,46 @@
-import os
 from flask import Flask
 from dotenv import load_dotenv
 
+#Importamos nuevas librerias clase 3
+from flask_restful import Api #Agrego la clase API
 
-#Agregamos la clase API
-from flask_restful import Api
-
-#Importo directorio de recursos
+#Importo dir de recursos
 import main.resources as resources
 
-#Inicio Restful API
+#Inicio Restful
 api = Api()
 
-#Metodo que inicializara la app y sus modulos
+#Vamos a crear un metodo que inicializara la app y todos los modulos
 def create_app():
-
-    #Iniciamos Flask
+    #inicio Flask
     app = Flask(__name__)
-
-    #Cargamos variables de entorno
+    #variables de entono
     load_dotenv()
+    
+    api.add_resource(resources.UsuariosResource, '/usuarios')
 
-    #Cargar a la API el Recurso PROFESORES y especificamos la ruta
-    api.add_resource(resources.ProfesorResource, '/profesor/<id>')
-    
+    api.add_resource(resources.UsuarioResource, '/usuario/<id>')
 
-    
-    #Cargar a la API el Recurso Planificacion Y especificamos la ruta
-    api.add_resource(resources.PlanificacionResource, '/planificacion/<id>')
-    
-    #Cargar a la API el Recurso Planificaciones Y especificamos la ruta
+    api.add_resource(resources.UsuariosAlumnosResource, '/usuariosalumnos')
+
+    api.add_resource(resources.UsuarioAlumnoResource, '/usuarioalumno/<id>')
+
+    api.add_resource(resources.UsuarioProfesorResource, '/usuarioprofesor/<id>')
+
     api.add_resource(resources.PlanificacionesResource, '/planificaciones')
-    
-    #Cargar a la API el Recurso Alumno Y especificamos la ruta
-    api.add_resource(resources.AlumnoResource, '/alumno/<id>')
-    
-    #Cargar a la API el Recurso Alumnos Y especificamos la ruta
-    api.add_resource(resources.AlumnosResource, '/alumnos')
-    
-    #Cargar a la API el Recurso PlanificacionA Y especificamos la ruta
-    api.add_resource(resources.PlanificacionAResource, '/planificacionA/<id>')
-    
 
+    api.add_resource(resources.PlanificacionResource, '/planificacion/<id>')
+
+    api.add_resource(resources.PlanificacionAlumnoResource, '/planificacionalumno/<id>')
+
+    api.add_resource(resources.ProfesorClasesResource, '/clases')
     
-    
-    
-    #Cargar la APLICACION en la API  de Flask Restful (Para que la API pueda usar la applicacion)
+    api.add_resource(resources.PagoResource, '/pago/<id>')
+
+    api.add_resource(resources.LoginResource, '/login')
+
+    #Cargar la aplicacion en la API de Flask Restful
+    #es para que la aplicacion de flask funcione como API
     api.init_app(app)
-
-    #Retornamos la app inicializada
+    #Por ultimo retornamos la aplicacion iniializada
     return app
-
