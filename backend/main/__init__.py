@@ -24,8 +24,7 @@ def create_app():
     #Cargar a la API el Recurso PROFESORES y especificamos la ruta
     api.add_resource(resources.ProfesorResource, '/profesor/<id>')
     
-    #Cargar a la API el Recurso Profesor Y especificamos la ruta
-    api.add_resource(resources.ProfesoresResource, '/profesores')
+
     
     #Cargar a la API el Recurso Planificacion Y especificamos la ruta
     api.add_resource(resources.PlanificacionResource, '/planificacion/<id>')

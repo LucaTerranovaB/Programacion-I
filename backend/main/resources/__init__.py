@@ -1,9 +1,7 @@
 from .usuarioProfesor import Profesor as ProfesorResource
-from .usuarioProfesor import Profesores as ProfesoresResource
 from .planificacionesProfesores import Planificaciones as PlanificacionesResource
 from .planificacionesProfesores import Planificacion as PlanificacionResource
 from .planificacionAlumno import PlanificacionA as PlanificacionAResource
-
 from .alumno import Alumno as AlumnoResource
 from .alumno import Alumnos as AlumnosResource
 
