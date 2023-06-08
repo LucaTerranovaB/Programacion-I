@@ -1,17 +1,38 @@
 from .. import db
+import json
+#Importamos de python 2 funciones
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 
 class Usuario(db.Model):
     id_Usuario = db.Column(db.Integer,primary_key=True)
-    rol = db.Column(db.String(15),nullable=False)
+    rol = db.Column(db.String(15),nullable=False,server_default="alumno")
     nombre = db.Column(db.String(15),nullable=False)
     apellido = db.Column(db.String(15),nullable=False)
-    mail = db.Column(db.String(30),nullable=False)
+    mail = db.Column(db.String(30),nullable=False, unique=True, index=True)
     dni = db.Column(db.Integer,nullable=False)
     telefono = db.Column(db.Integer,nullable=False)
     password = db.Column(db.String(30),nullable=False)
     edad = db.Column(db.Integer,nullable=False)
     sexo = db.Column(db.String(15),nullable=True)
+    alumno = db.relationship("UsuariosAlumnos", back_populates= "usuarios",cascade="all, delete-orphan")
+    profesor = db.relationship("UsuarioProfesor", back_populates= "usuarioprofesor",cascade="all, delete-orphan")
     
+
+
+    #Getter de la contraseña plana no permite leerla
+    @property
+    def plain_password(self):
+        raise AttributeError('Pass no se puede leer')
+    #Setter de la contraseña toma un valor en texto plano
+    #Calcula el hash y lo guarda en el atributo password
+    @plain_password.setter
+    def plain_password(self, password):
+        self.password = generate_password_hash(password)
+    #Método que compara una contraseña en texto plano con el hash guardado en la db
+    def validate_pass(self,password):
+        return check_password_hash(self.password, password)
     
     def __repr__(self):
         return '<Usuario: %r >' % (self.nombre)
@@ -20,7 +41,8 @@ class Usuario(db.Model):
     def to_json(self):
         usuario_json = {
             'id_Usuario' : self.id_Usuario,
-            'rol' : str(self.rol),
+        #si no tiene permiso el atributo rol no se muestra en eljson    
+        #    'rol' : str(self.rol),
             'nombre' : str(self.nombre),
             'apellido' : str(self.apellido),
             'mail' : str(self.mail),
@@ -32,7 +54,12 @@ class Usuario(db.Model):
         }
         return usuario_json
     
-    def to_json_short(self):
+    def to_json_complete(self):
+        
+        alumnos = [usuariosalumnos.to_json() for usuariosalumnos in self.alumno]
+    #    clases = [usuariosprofesor.to_json() for usuariosprofesor in self.profesor]
+
+
         usuario_json = {
             'id_Usuario' : self.id_Usuario,
             'rol' : str(self.rol),
@@ -44,6 +71,17 @@ class Usuario(db.Model):
             'password' : str(self.password),
             'edad' : self.edad,
             'sexo' : str(self.sexo),
+            'alumnos': alumnos,
+    #        'clase' : clases
+        }
+        return usuario_json
+
+    
+    def to_json_short(self):
+        usuario_json = {
+            'id_Usuario' : self.id_Usuario,
+            'rol' : str(self.rol),
+            'nombre' : str(self.nombre),
 
         }
         return usuario_json
@@ -63,7 +101,6 @@ class Usuario(db.Model):
         sexo = usuario_json.get('sexo')
         
         
-        
         return Usuario(id_Usuario = id_Usuario,
                        rol = rol,
                        nombre = nombre,
@@ -71,7 +108,7 @@ class Usuario(db.Model):
                        mail = mail,
                        dni = dni,
                        telefono = telefono,
-                       password = password,
+                       plain_password = password,
                        edad =  edad,
                        sexo = sexo
                         )
